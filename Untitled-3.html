@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzulayZanella - Medicina Estética e Dermatologia</title>
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        :root {
+            --cor-principal: #000000; /* Preto para botões e textos fortes */
+            --cor-texto-claro: #ffffff; /* Branco para textos sobre imagens escuras */
+            --cor-fundo: #ffffff; /* Branco para o fundo geral */
+            --cor-texto-suave: #333333; /* Cinza escuro para textos descritivos */
+            --fonte-principal: 'Arial', sans-serif; /* Usando Arial como fonte padrão segura */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-suave);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- BOTÕES --- */
+        .btn-preto {
+            display: inline-block;
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-preto:hover {
+            background-color: #333;
+        }
+
+        .btn-branco {
+            display: inline-block;
+            background-color: var(--cor-texto-claro);
+            color: var(--cor-principal);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-branco:hover {
+            opacity: 0.9;
+        }
+
+        /* --- CONTAINER MESTRE --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        /* =========================================
+           1. CABEÇALHO (HEADER) - Baseado na image_2.png
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--cor-principal);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 14px;
+            color: var(--cor-principal);
+            font-weight: 500;
+        }
+
+        /* =========================================
+           2. SEÇÃO HERO (BANNER) - Baseado na image_2.png
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('caminho/para/sua/imagem-hero.jpg'); /* Substitua pelo caminho real da imagem */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cor-texto-claro);
+            padding-top: 80px; /* Desconto do header fixed */
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--cor-texto-claro);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .scroll-down::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid var(--cor-texto-claro);
+            border-bottom: 2px solid var(--cor-texto-claro);
+            transform: rotate(-45deg);
+            margin-bottom: 5px;
+        }
+
+        /* =========================================
+           3. SEÇÃO SOBRE / TRATAMENTOS - Baseado na image_3.png
+           ========================================= */
+        .sobre-tratamentos {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sobre-imagem {
+            flex: 1;
+        }
+
+        .sobre-imagem img {
+            border-radius: 15px;
+        }
+
+        .sobre-conteudo {
+            flex: 1;
+        }
+
+        .sobre-conteudo h2 {
+            font-size: 32px;
+            color: var(--cor-principal);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .sobre-conteudo p {
+            font-size: 16px;
+            color: var(--cor-texto-suave);
+            margin-bottom: 30px;
+        }
+
+        /* =========================================
+           4. SEÇÃO DESEJOS (CATEGORIAS) - Baseado na image_4.png
+           ========================================= */
+        .secao-desejos h2 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--cor-principal);
+            margin-bottom: 50px;
+        }
+
+        .grid-desejos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card-desejo {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .card-desejo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-desejo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            text-align: center;
+        }
+
+        .card-desejo-overlay h3 {
+            color: var(--cor-texto-claro);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           5. SEÇÃO PROJETO BT - Baseado na image_5.png
+           ========================================= */
+        .projeto-bt {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: #f9f9f9; /* Um fundo levemente diferente */
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .bt-conteudo {
+            flex: 1;
+        }
+
+        .bt-conteudo h2 {
+            font-size: 36px;
+            color: var(--cor-principal);
+            margin-bottom: 20px;
+        }
+
+        .bt-conteudo p {
+            font-size: 16px;
+            color: var(--cor-texto-suave);
+            margin-bottom: 30px;
+        }
+
+        .bt-imagem {
+            flex: 1;
+        }
+
+        .bt-imagem img {
+            border-radius: 15px;
+        }
+
+        /* --- RESPONSIVIDADE (MOBILE) --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 32px; }
+            .grid-desejos { grid-template-columns: repeat(2, 1fr); }
+            .sobre-tratamentos, .projeto-bt { flex-direction: column; text-align: center; gap: 30px; }
+            .nav-menu { display: none; } /* Esconde menu simples no mobile */
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 40px 0; }
+            .grid-desejos { grid-template-columns: 1fr; }
+            .card-desejo { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">AzulayZanella</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#tratamentos">Tratamentos</a></li>
+                    <li><a href="#antes-depois">Antes e depois</a></li>
+                </ul>
+            </nav>
+            <a href="#agendar" class="btn-preto">Agende seu horário!</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>O MELHOR DA MEDICINA ESTÉTICA E DERMATOLOGIA</h1>
+            <p>Conheça nossos tratamentos e tecnologias avançadas!</p>
+            <a href="#agendar" class="btn-branco">Agendar Consulta!</a>
+        </div>
+        <div class="scroll-down"></div>
+    </section>
+
+    <section id="tratamentos" class="container">
+        <div class="sobre-tratamentos">
+            <div class="sobre-imagem">
+                <img src="caminho/para/imagem_mulher_velha.jpg" alt="Mulher sorrindo, foco na pele saudável">
+            </div>
+            <div class="sobre-conteudo">
+                <h2>Tratamentos estéticos e dermatológicos para melhorar a saúde e a beleza da sua pele, em todas as idades.</h2>
+                <p>Medicina, doenças dermatológicas de pele, cabelos e unhas, cirurgia dermatológica, laser, estética facial e corporal, ginecologia estética e funcional, nutrição. Cuidamos de tudo isso com as tecnologias mais avançadas para garantir precisão e segurança em seu tratamento.</p>
+                <a href="#todos-tratamentos" class="btn-preto">Conheça nossos tratamentos!</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container secao-desejos">
+        <h2>O que você deseja?</h2>
+        <div class="grid-desejos">
+            
+            <div class="card-desejo">
+                <img src="caminho/para/imagem_homem.jpg" alt="Homem com barba aparada">
+                <div class="card-desejo-overlay">
+                    <h3>Harmonia</h3>
+                </div>
+            </div>
+
+            <div class="card-desejo">
+                <img src="caminho/para/imagem_mulher_jovem.jpg" alt="Mulher jovem com pele radiante">
+                <div class="card-desejo-overlay">
+                    <h3>Jovialidade</h3>
+                </div>
+            </div>
+
+            <div class="card-desejo">
+                <img src="caminho/para/imagem_mulher_velha_card.jpg" alt="Mulher sorrindo, prevenção">
+                <div class="card-desejo-overlay">
+                    <h3>Prevenção</h3>
+                </div>
+            </div>
+
+            <div class="card-desejo">
+                <img src="caminho/para/imagem_mulher_performance.jpg" alt="Mulher com toalha e garrafa de água">
+                <div class="card-desejo-overlay">
+                    <h3>Performance</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="projeto-bt">
+            <div class="bt-conteudo">
+                <h2>Projeto BT</h2>
+                <p>O projeto foi criado pensando em garantir para você uma pele bem cuidada por completo. Nele, a aplicação de injetáveis é complementada por um laser do nosso parque tecnológico sem custo, indicado pelos nossos médicos especialistas de acordo com a necessidade da sua pele. Faça parte clicando no botão abaixo.</p>
+                <a href="#saiba-mais-bt" class="btn-preto">Saiba mais aqui!</a>
+            </div>
+            <div class="bt-imagem">
+                <img src="caminho/para/imagem_aplicacao_injetavel.jpg" alt="Médica aplicando injetável em paciente">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
